@@ -32,7 +32,8 @@ public class GatewayVerticle extends AbstractVerticle {
         router.get("/health").handler(ctx -> ctx.response().end(new JsonObject().put("status", "UP").toString()));
         // Update the line below
         // router.get("/hello").handler(ctx -> ctx.response().end(new JsonObject().put("message", new Timestamp(new Date().getTime()) + " Hello, World!").toString() + "\n"));
-	router.get("/hello").handler(ctx -> ctx.response().end(new JsonObject().put("message", new Timestamp(new Date().getTime()) + " Hello, World! - Update").toString() + "\n"));
+	// router.get("/hello").handler(ctx -> ctx.response().end(new JsonObject().put("message", new Timestamp(new Date().getTime()) + " Hello, World! - Update").toString() + "\n"));
+	router.get("/hello").handler(ctx -> ctx.response().end(new JsonObject().put("message", new Timestamp(new Date().getTime()) + " Hello, World! - Update automatic!").toString() + "\n"));
         router.get("/api/products").handler(this::products);
 
         ServiceDiscovery.create(vertx, discovery -> {
